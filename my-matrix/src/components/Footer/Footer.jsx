@@ -1,10 +1,10 @@
-import * as React from 'react';
-import BottomNavigation from '@mui/material/BottomNavigation';
+import React from 'react';
+import { StyledFooter } from './styled';
 
 const Footer = () => (
-  <BottomNavigation>
-    FOOTER
-  </BottomNavigation>
+  <StyledFooter className='FooterWrapper'>
+    <div>by Poliakova</div>
+  </StyledFooter>
 );
 
 export default Footer;
