@@ -1,8 +1,7 @@
-import {
-  CardContent,
-  CardMedia,
-} from '@mui/material';
 import React, { useState } from 'react';
+import {
+  CardContent, CardMedia,
+} from '@mui/material';
 import {
   StyledButton, StyledCard, StyledCardActions, StyledTypography,
 } from './styled';
@@ -18,8 +17,8 @@ const CardArcan = ({
   const handleCloseModal = () => setOpenModal(false);
 
   return (
-   <>
-    <StyledCard sx={{ maxWidth: 345 }}>
+    <>
+      <StyledCard sx={{ maxWidth: 345 }}>
         <CardMedia
           sx={{ height: 140 }}
           image={image}
@@ -27,7 +26,7 @@ const CardArcan = ({
         />
         <CardContent>
           <StyledTypography gutterBottom variant="h5" component="div">
-          {title}
+            {title}
           </StyledTypography>
           <StyledTypography variant="body2" color="text.secondary">
             {description}
@@ -45,9 +44,10 @@ const CardArcan = ({
           positive={positive}
           negative={negative}
           lesson={lesson}
+          handelClothe={handleCloseModal}
         />
       </ModalCard>
-   </>
+    </>
   );
 };
 

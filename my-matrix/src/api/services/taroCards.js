@@ -13,7 +13,6 @@ const taroCards = {
   post: (params) => axios.post('/arcans', params)
     .then((data) => data)
     .catch((error) => console.log(error)),
-  delete: (id) => axios.delete(`/arcans/${id}`),
 };
 
 export default taroCards;

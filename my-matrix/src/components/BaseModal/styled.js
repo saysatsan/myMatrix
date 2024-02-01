@@ -30,3 +30,12 @@ export const StyledSpan = styled.span`
   font-weight: bold;
   color: #2e2e2e;
 `;
+
+export const StyledCloseButton = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffead07a;
+  border-radius: 10px;
+  cursor: pointer;
+`;
