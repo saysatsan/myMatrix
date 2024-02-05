@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Grid } from '@mui/material';
 
-const MainWrapper = styled(Grid)`
+const StyledWrapper = styled(Grid)`
   &.mainWrapper {
     border-left: 1px solid #e0e0e0;
     overflow: auto;
@@ -25,4 +25,4 @@ const MainWrapper = styled(Grid)`
   }
 `;
 
-export default MainWrapper;
+export default StyledWrapper;

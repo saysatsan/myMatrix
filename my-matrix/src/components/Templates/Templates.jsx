@@ -1,25 +1,25 @@
 import React from 'react';
 import { Grid } from '@mui/material';
+import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/Sidebar';
 import Footer from '../Footer/Footer';
-import MainWrapper from './styled';
-import Cards from '../../pages/Cards/Cards';
+import StyledWrapper from './styled';
 
-const Templates = () => (
+const Templates = ({ handleSearch }) => (
   <Grid container style={{ display: 'flex', minHeight: '100%' }}>
     <Grid item xs={12}>
       <Header />
     </Grid>
-    <MainWrapper className='sidebar-wrapper' item xs={3}>
-      <SideBar />
-    </MainWrapper>
-    <MainWrapper className='mainWrapper' item xs={9}>
-      <Cards />
-    </MainWrapper>
-    <MainWrapper className='footerWrapper' item xs={12}>
+    <StyledWrapper className='sidebar-wrapper' item xs={3}>
+      <SideBar handleSearch={handleSearch} />
+    </StyledWrapper>
+    <StyledWrapper className='mainWrapper' item xs={9}>
+      <Outlet />
+    </StyledWrapper>
+    <StyledWrapper className='footerWrapper' item xs={12}>
       <Footer />
-    </MainWrapper>
+    </StyledWrapper>
   </Grid>
 );
 

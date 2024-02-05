@@ -1,12 +1,16 @@
 import { CardContent, CardMedia } from '@mui/material';
 import React from 'react';
 import { StyledTypography } from '../Card/styled';
-import { StyledBox, StyledSpan } from './styled';
+import { StyledBox, StyledCloseButton, StyledSpan } from './styled';
+import iconClose from './images/icons8-close-45.png';
 
 const BaseModal = ({
-  image, title, description, positive, negative, lesson,
+  image, title, description, positive, negative, lesson, handelClothe,
 }) => (
   <StyledBox className='styledBox' sx={{ width: 600 }}>
+    <StyledCloseButton onClick={handelClothe}>
+      <img src={iconClose} alt='icon Close' />
+    </StyledCloseButton>
     <CardMedia
       sx={{ height: 450 }}
       image={image}

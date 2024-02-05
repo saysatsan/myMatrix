@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardsWrapper = styled.div`
+export const StyledCardsWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

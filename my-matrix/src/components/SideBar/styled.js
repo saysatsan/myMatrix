@@ -1,19 +1,21 @@
 import { List, ListItemButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const CustomList = styled(List)`
+export const StyledList = styled(List)`
   font-size: 28px;
   text-align: center;
 `;
 
-export const CustomListButton = styled(ListItemButton)`
+export const StyledListButton = styled(ListItemButton)`
   &.styledButton {
     display: flex;
     justify-content: center;
   }
 `;
 
-export const CustomListText = styled.div`
+export const StyledListText = styled(Link)`
+  text-decoration: none;
   font-size: 28px;
   font-family: 'Playfair Display', serif; 
   color: #260124;
@@ -45,14 +47,14 @@ export const CustomListText = styled.div`
   }
 `;
 
-export const CustomIcon = styled.span`
+export const StyledIcon = styled.span`
   cursor: pointer;
 
   @media (min-width: 768px) {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     display: block;
   }
 `;
