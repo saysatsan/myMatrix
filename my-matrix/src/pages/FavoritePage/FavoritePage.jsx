@@ -15,6 +15,13 @@ const FavoritePage = () => {
     dispatch(cardsThunk.fetchCards());
   }, [dispatch]);
 
+  const handleToggleFavorite = (id) => {
+    const clickedCard = cards.find((card) => card.id === id);
+    const params = { ...clickedCard, isFavorite: !clickedCard.isFavorite };
+
+    dispatch(cardsThunk.changeCard({ id, params }));
+  };
+
   const filterCards = useMemo(
     () => cards.filter((card) => card.isFavorite === true),
     [cards],
@@ -36,6 +43,7 @@ const FavoritePage = () => {
           negative={card.negative}
           lesson={card.lesson}
           favorite={card.isFavorite}
+          handleFavorite={handleToggleFavorite}
         />
       ))}
     </StyledFavoritePage>
