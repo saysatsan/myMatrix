@@ -40,3 +40,13 @@ export const StyledCardActions = styled(CardActions)`
     margin-top: auto;
   }
 `;
+
+export const StyledFavorite = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 2px 2px 0 2px;
+  background-color: #ffffffb5;
+  border-radius: 5px;
+  cursor: pointer;
+`;

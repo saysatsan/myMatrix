@@ -6,13 +6,13 @@ import SideBar from '../SideBar/Sidebar';
 import Footer from '../Footer/Footer';
 import StyledWrapper from './styled';
 
-const Templates = ({ handleSearch }) => (
+const Templates = () => (
   <Grid container style={{ display: 'flex', minHeight: '100%' }}>
     <Grid item xs={12}>
       <Header />
     </Grid>
     <StyledWrapper className='sidebar-wrapper' item xs={3}>
-      <SideBar handleSearch={handleSearch} />
+      <SideBar />
     </StyledWrapper>
     <StyledWrapper className='mainWrapper' item xs={9}>
       <Outlet />

@@ -2,12 +2,12 @@ import React, { useEffect, useMemo } from 'react';
 import { Alert, LinearProgress } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import CardArcan from '../../components/Card/Card';
-import { StyledCardsWrapper } from './styled';
+import { StyledFavoritePage } from './styled';
 import { cardsThunk } from '../../store/sources/cards';
 
-const Cards = () => {
+const FavoritePage = () => {
   const {
-    cards, loading, error, filter,
+    cards, loading, error,
   } = useSelector((state) => state.cardReducer);
   const dispatch = useDispatch();
 
@@ -16,22 +16,15 @@ const Cards = () => {
   }, [dispatch]);
 
   const filterCards = useMemo(
-    () => cards.filter((card) => card.title.toLowerCase().indexOf(filter.toLowerCase()) !== -1),
-    [cards, filter],
+    () => cards.filter((card) => card.isFavorite === true),
+    [cards],
   );
-
-  const handleToggleFavorite = (id) => {
-    const clickedCard = cards.find((card) => card.id === id);
-    const params = { ...clickedCard, isFavorite: !clickedCard.isFavorite };
-
-    dispatch(cardsThunk.changeCard({ id, params }));
-  };
 
   if (loading) return <LinearProgress color="secondary" />;
   if (error) return <Alert>Error: {error}</Alert>;
 
   return (
-    <StyledCardsWrapper>
+    <StyledFavoritePage>
       {filterCards.map((card) => (
         <CardArcan
           key={card.id}
@@ -43,11 +36,10 @@ const Cards = () => {
           negative={card.negative}
           lesson={card.lesson}
           favorite={card.isFavorite}
-          handleFavorite={handleToggleFavorite}
         />
       ))}
-    </StyledCardsWrapper>
+    </StyledFavoritePage>
   );
 };
 
-export default Cards;
+export default FavoritePage;

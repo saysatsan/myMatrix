@@ -1,38 +1,27 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, LinearProgress } from '@mui/material';
-import taroCard from '../../api/services/taroCard';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   StyledCardPage, StyledCardPageButton, StyledCardPageP, StyledCardPageSpan, StyledCardPageTitle, StyledImage,
 } from './styled';
 import ModalCard from '../../components/ModalCard/ModalCard';
 import OrderModal from '../../components/OrderModal/OrderModal';
+import { cardsThunk } from '../../store/sources/cards';
 
 const CardPage = () => {
+  const { card, loading } = useSelector((state) => state.cardReducer);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const cardId = useParams();
-  const [card, setCard] = useState({});
-  const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
 
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
-  const getCard = useCallback(async () => {
-    try {
-      const responseCard = await taroCard.get(cardId.id);
-
-      setCard(responseCard);
-    } catch (error) {
-      throw new Error(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [cardId]);
-
   useEffect(() => {
-    getCard();
-  }, [getCard]);
+    dispatch(cardsThunk.fetchCardPage(cardId.id));
+  }, [dispatch]);
 
   const handleGoBack = () => {
     navigate(-1);

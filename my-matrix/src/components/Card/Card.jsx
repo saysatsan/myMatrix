@@ -3,13 +3,15 @@ import {
   CardContent, CardMedia,
 } from '@mui/material';
 import {
-  StyledButton, StyledCard, StyledCardActions, StyledTypography,
+  StyledButton, StyledCard, StyledCardActions, StyledFavorite, StyledTypography,
 } from './styled';
 import ModalCard from '../ModalCard/ModalCard';
 import BaseModal from '../BaseModal/BaseModal';
+import favoriteIcon from './images/favorite.png';
+import notFavoriteIcon from './images/noFavorite.png';
 
 const CardArcan = ({
-  title, description, image, positive, negative, lesson,
+  title, id, description, image, positive, negative, lesson, favorite, handleFavorite,
 }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -19,6 +21,12 @@ const CardArcan = ({
   return (
     <>
       <StyledCard sx={{ maxWidth: 345 }}>
+        <StyledFavorite onClick={() => handleFavorite(id)}>
+          {favorite
+            ? <img src={favoriteIcon} alt='favoriteIcon' />
+            : <img src={notFavoriteIcon} alt='notFavoriteIcon' />
+          }
+        </StyledFavorite>
         <CardMedia
           sx={{ height: 140 }}
           image={image}
