@@ -31,8 +31,7 @@ const Matrix = ({ results }) => {
                 className={`numberLi-${index}`}
                 key={index}
                 id={number}
-                onClick={(e) => handelPopoverOpen(index, e)} // Fixed the arguments order
-
+                onClick={(e) => handelPopoverOpen(index, e)}
               >
                 {number}
                 <PopoverMatrix

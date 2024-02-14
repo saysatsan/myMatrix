@@ -10,6 +10,7 @@ const taroCard = {
       return data.data;
     })
     .catch((error) => console.log(error)),
+  put: (id, params) => axios.put(`/arcans/${id}`, params),
 };
 
 export default taroCard;
