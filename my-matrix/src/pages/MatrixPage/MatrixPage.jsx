@@ -40,7 +40,7 @@ const MatrixPage = () => {
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-testid='matrixWrapper'>
       <h2>Destiny Matrix Calculator</h2>
       <InputData
         birthDate={birthDate}

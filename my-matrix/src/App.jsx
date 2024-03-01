@@ -11,7 +11,7 @@ import store from './store';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store} >
       <BrowserRouter>
         <Routes>
           <Route path='/*' element={<NoteFound />} />

@@ -27,11 +27,11 @@ const Cards = () => {
     dispatch(cardsThunk.changeCard({ id, params }));
   };
 
-  if (loading) return <LinearProgress color="secondary" />;
+  if (loading) return <LinearProgress color="secondary" data-testid='loadingSpinner'/>;
   if (error) return <Alert>Error: {error}</Alert>;
 
   return (
-    <StyledCardsWrapper>
+    <StyledCardsWrapper data-testid="cardsWrapper">
       {filterCards.map((card) => (
         <CardArcan
           key={card.id}

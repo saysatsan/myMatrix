@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { StyledNumbers, StyledNumber } from './styled';
-import ImageMatrix from './matrix.png';
 import PopoverMatrix from '../PopoverMatrix/PopoverMatrix';
 
-const Matrix = ({ results }) => {
-  const [anchorEls, setAnchorEls] = useState(new Array(results.length).fill(null));
+interface MatrixProps {
+  results: number[];
+}
 
-  const handelPopoverOpen = (index, e) => {
+const Matrix = ({ results }: MatrixProps): JSX.Element => {
+  const [anchorEls, setAnchorEls] = useState<Array<HTMLInputElement | null>>(new Array(results.length).fill(null));
+
+  const handelPopoverOpen = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEls((prevAnchorEls) => {
       const newAnchorEls = [...prevAnchorEls];
-      newAnchorEls[index] = e.currentTarget;
+      newAnchorEls[index] = e.currentTarget as HTMLInputElement;
       return newAnchorEls;
     });
   };
 
-  const handlePopoverClose = (index) => {
+  const handlePopoverClose = (index: number): void => {
     const newAnchorEls = [...anchorEls];
     newAnchorEls[index] = null;
     setAnchorEls(newAnchorEls);
@@ -22,15 +25,16 @@ const Matrix = ({ results }) => {
 
   return (
     <StyledNumbers className='matrixWrapper'>
-      <img src={ImageMatrix} alt='Matrix' />
+      <img src='/static/images/matrix.png' alt='Matrix' />
       {results.length > 0 && (
         <div>
           {results.map((number, index) => (
             <>
+              <React.Fragment key={number}>
               <StyledNumber
                 className={`numberLi-${index}`}
                 key={index}
-                id={number}
+                id={number.toString()}
                 onClick={(e) => handelPopoverOpen(index, e)}
               >
                 {number}
@@ -43,6 +47,8 @@ const Matrix = ({ results }) => {
                   open={Boolean(anchorEls[index])}
                 />
               </StyledNumber>
+
+              </React.Fragment>              
             </>
           ))}
         </div>

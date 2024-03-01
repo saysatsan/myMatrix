@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 export const StyledNoteFound = styled.div`
@@ -14,4 +15,13 @@ export const StyledP = styled.p`
     font-weight: 700;
     color: #f7703c;
     text-align: center;
+`;
+
+export const StyledButton = styled(Button)`
+  && {
+    font-size: 25px;
+    font-weight: 700;
+    color: #9c27b0;
+    text-align: center;
+  }
 `;
