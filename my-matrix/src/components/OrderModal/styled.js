@@ -48,6 +48,7 @@ export const StyledButton = styled(Button)`
 
 export const StyledClose = styled.img`
   align-self: flex-end;
+  cursor: pointer;
 `;
 
 export const StyledPromo = styled.div`  

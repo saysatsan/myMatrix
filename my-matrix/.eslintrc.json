@@ -11,7 +11,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jest/recommended",
-    "plugin:testing-library/react"
+    "plugin:testing-library/react"   
   ],
   "globals": {
     "Atomics": "readonly",
@@ -28,7 +28,7 @@
   "root": true,
   "plugins": [
     "promise",
-    "import"
+    "import"    
   ],
   "noInlineConfig": false,
   "settings": {
@@ -52,7 +52,7 @@
       "error",
       "WithStatement",
       "BinaryExpression[operator='in']"
-    ],
+    ],    
     "semi": [
       "error",
       "always"

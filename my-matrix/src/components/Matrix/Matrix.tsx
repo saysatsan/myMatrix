@@ -47,8 +47,7 @@ const Matrix = ({ results }: MatrixProps): JSX.Element => {
                   open={Boolean(anchorEls[index])}
                 />
               </StyledNumber>
-
-              </React.Fragment>              
+              </React.Fragment>
             </>
           ))}
         </div>
