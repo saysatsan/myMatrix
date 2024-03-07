@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import {
-  CardContent, CardMedia,
-} from '@mui/material';
+import { CardContent, CardMedia } from '@mui/material';
 import {
   StyledButton, StyledCard, StyledCardActions, StyledFavorite, StyledTypography,
 } from './styled';
 import ModalCard from '../ModalCard/ModalCard';
 import BaseModal from '../BaseModal/BaseModal';
-import favoriteIcon from './images/favorite.png';
-import notFavoriteIcon from './images/noFavorite.png';
 
 const CardArcan = ({
   title, id, description, image, positive, negative, lesson, favorite, handleFavorite,
@@ -20,11 +16,11 @@ const CardArcan = ({
 
   return (
     <>
-      <StyledCard sx={{ maxWidth: 345 }}>
-        <StyledFavorite onClick={() => handleFavorite(id)}>
+      <StyledCard sx={{ maxWidth: 345 }} data-testid='cardWrapper'>
+        <StyledFavorite onClick={() => handleFavorite(id)} data-testid='StyledFavorite'>
           {favorite
-            ? <img src={favoriteIcon} alt='favoriteIcon' />
-            : <img src={notFavoriteIcon} alt='notFavoriteIcon' />
+            ? <img src='/static/images/favorite.png' alt='favoriteIcon' />
+            : <img src='/static/images/noFavorite.png' alt='notFavoriteIcon' />
           }
         </StyledFavorite>
         <CardMedia
@@ -32,8 +28,8 @@ const CardArcan = ({
           image={image}
           title={title}
         />
-        <CardContent>
-          <StyledTypography gutterBottom variant="h5" component="div">
+        <CardContent data-testid='CardContentTitle'>
+          <StyledTypography gutterBottom variant="h5" component="div" >
             {title}
           </StyledTypography>
           <StyledTypography variant="body2" color="text.secondary">

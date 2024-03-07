@@ -20,7 +20,7 @@ export const StyledNumbers = styled.div`
   & > img {
     text-align: center;
     width: 95%;
-    height: auto;
+    height: 95%;
   }
 `;
 

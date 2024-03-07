@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  ListItem, TextField,
-} from '@mui/material';
+import { ListItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
   StyledIcon, StyledList, StyledListButton, StyledListText,
 } from './styled';
-
-import IconCards from './images/icons8-tarot-cards-64.png';
-import IconMatrix from './images/icons8-matrix-64.png';
-import IconFavorite from './images/icons8-heart-64.png';
 import { cardsAction } from '../../store/sources/cards';
 
 const SideBar = () => {
@@ -26,7 +20,7 @@ const SideBar = () => {
           <StyledListText to={'/mymatrix/cards'}>Arcans of tarots</StyledListText>
           <Link to={'/mymatrix/cards'}>
             <StyledIcon>
-              <img src={IconCards} alt='Icon cards' />
+              <img src='/static/images/icons8-tarot-cards-64.png' alt='Icon cards' />
             </StyledIcon>
           </Link>
         </StyledListButton>
@@ -36,7 +30,7 @@ const SideBar = () => {
           <StyledListText to={'/mymatrix/matrix'}>Matrix of destiny</StyledListText>
           <Link to={'/mymatrix/matrix'}>
             <StyledIcon>
-              <img src={IconMatrix} />
+              <img src='/static/images/icons8-matrix-64.png' />
             </StyledIcon>
           </Link>
         </StyledListButton>
@@ -46,7 +40,7 @@ const SideBar = () => {
           <StyledListText to={'/mymatrix/favorite'}>Favorite cards</StyledListText>
           <Link to={'/mymatrix/favorite'}>
             <StyledIcon>
-              <img src={IconFavorite} />
+              <img src='/static/images/icons8-heart-64.png' />
             </StyledIcon>
           </Link>
         </StyledListButton>
