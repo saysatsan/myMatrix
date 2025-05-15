@@ -7,9 +7,15 @@ interface MatrixProps {
 }
 
 const Matrix = ({ results }: MatrixProps): JSX.Element => {
-  const [anchorEls, setAnchorEls] = useState<Array<HTMLInputElement | null>>(new Array(results.length).fill(null));
+  const [anchorEls, setAnchorEls] = useState<Array<HTMLInputElement | null>>(
+    new Array(results.length).fill(null),
+  );
+  console.log(results);
 
-  const handelPopoverOpen = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
+  const handelPopoverOpen = (
+    index: number,
+    e: React.MouseEvent<HTMLDivElement>,
+  ) => {
     setAnchorEls((prevAnchorEls) => {
       const newAnchorEls = [...prevAnchorEls];
       newAnchorEls[index] = e.currentTarget as HTMLInputElement;
@@ -29,26 +35,23 @@ const Matrix = ({ results }: MatrixProps): JSX.Element => {
       {results.length > 0 && (
         <div>
           {results.map((number, index) => (
-            <>
-              <React.Fragment key={number}>
-              <StyledNumber
-                className={`numberLi-${index}`}
-                key={index}
-                id={number.toString()}
-                onClick={(e) => handelPopoverOpen(index, e)}
-              >
-                {number}
-                <PopoverMatrix
-                  index={index}
-                  key={index}
-                  id={number}
-                  anchorEl={anchorEls[index]}
-                  onClose={() => handlePopoverClose(index)}
-                  open={Boolean(anchorEls[index])}
-                />
-              </StyledNumber>
-              </React.Fragment>
-            </>
+            // <React.Fragment key={number}>
+            <StyledNumber
+              className={`numberLi-${index}`}
+              key={index}
+              id={number.toString()}
+              onClick={(e) => handelPopoverOpen(index, e)}
+            >
+              {number}
+              <PopoverMatrix
+                index={index}
+                id={number}
+                anchorEl={anchorEls[index]}
+                onClose={() => handlePopoverClose(index)}
+                open={Boolean(anchorEls[index])}
+              />
+            </StyledNumber>
+            // </React.Fragment>
           ))}
         </div>
       )}

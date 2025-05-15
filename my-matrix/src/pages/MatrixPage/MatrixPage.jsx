@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledWrapper } from './styled';
-import Matrix from '../../components/Matrix/Matrix';
+import Matrix from '../../components/Matrix/Matrix.tsx';
 import InputData from '../../components/InputData/InputData';
 
 const MatrixPage = () => {
@@ -34,7 +34,9 @@ const MatrixPage = () => {
     const D1 = parseInt(calculateSingleDigit(A1 + B1 + C1), 10);
     const E1 = parseInt(calculateSingleDigit(D1 + A1 + B1 + C1), 10);
 
-    setResults([A1, B1, C1, D1, E1]);
+    const newResults = [A1, B1, C1, D1, E1];
+
+    setResults(newResults);
 
     inputClear();
   };
