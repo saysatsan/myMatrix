@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledWrapper } from './styled';
-import Matrix from '../../components/Matrix/Matrix.jsx';
+import Matrix from '../../components/Matrix/Matrix';
 import InputData from '../../components/InputData/InputData';
 
 const MatrixPage = () => {
