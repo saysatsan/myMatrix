@@ -35,7 +35,7 @@ const Matrix = ({ results }: MatrixProps): JSX.Element => {
       {results.length > 0 && (
         <div>
           {results.map((number, index) => (
-            // <React.Fragment key={number}>
+            <React.Fragment key={number}>
             <StyledNumber
               className={`numberLi-${index}`}
               key={index}
@@ -51,7 +51,7 @@ const Matrix = ({ results }: MatrixProps): JSX.Element => {
                 open={Boolean(anchorEls[index])}
               />
             </StyledNumber>
-            // </React.Fragment>
+            </React.Fragment>
           ))}
         </div>
       )}
